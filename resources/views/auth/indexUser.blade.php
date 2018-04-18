@@ -1,1 +1,1 @@
-<h1>página de configuración del usuario</h1>
+<h1>página de configuración del usuario , bienvenido!</h1>
