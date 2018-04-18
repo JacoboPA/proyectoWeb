@@ -49,7 +49,7 @@
                        aria-expanded="false"> Miembros
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/register" class="dropdown-item">Regístrate</a></li>
+                        <li><a href="/register" class="dropdown-item">No tengo cuenta</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#myModal" class="dropdown-item">Login</a></li>
                     </ul>
                 </li>
