@@ -51,6 +51,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-5 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
@@ -75,6 +76,44 @@
                     <a href="#">Dungeons & World</a>
                 </div>
 
+=======
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="/inicio">Mordheim</a>
+            </div>
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="#">Dungeons & World</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="/inicio">Mordheim</a>
+            </div>
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="#">Dungeons & World</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="/inicio">Mordheim</a>
+            </div>
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+                 data-delay="0.1s">
+                <a href="#">Dungeons & World</a>
+>>>>>>> 4e1f9fe63b3c64b2a4580345002e538ec1a98f85
             </div>
         </div>
         <div class="row">
