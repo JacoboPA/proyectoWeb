@@ -26,29 +26,7 @@
 </head>
 <body>
 
-@if (Route::has('login'))
-    <div class="top-right links">
-        @auth
-            <?php $user = \Illuminate\Support\Facades\Auth::user();
 
-            if($user->rol != 'admin'){
-            ?>
-            @include('shared.navbar_user')
-            <?php
-            }
-            else{
-            ?>
-            @include('shared.navbar_admin')
-            <?php
-            }
-            ?>
-        @else
-
-            @include('shared.navbar_sin_user')
-
-        @endauth
-    </div>
-@endif
 @yield('content')
 <script src="/js/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
