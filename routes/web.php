@@ -14,7 +14,7 @@
 Route::get('/', 'PagesController@index' );
 Route::get('/historia', 'PagesController@about');
 Route::get('/inicio', 'PagesController@home' );
-
+Route::get('/settings','PagesController@settings');
 
 
 Route::get('/contact', 'PJController@create');

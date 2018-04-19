@@ -18,6 +18,11 @@ class PagesController extends Controller
         return view('index');
     }
 
+    public function settings()
+    {
+        return view('auth.indexUser');
+    }
+
     public function about()
     {
         return view('about');
@@ -46,16 +51,22 @@ class PagesController extends Controller
     {
         return view('info.clases.Guerrero');
     }
+
     /*
      * Paginas de razas
      */
-    public function Elf(){
+    public function Elf()
+    {
         return view('info.razas.Elfo');
     }
-    public function Dwarf(){
+
+    public function Dwarf()
+    {
         return view('info.razas.Enano');
     }
-    public function Human(){
+
+    public function Human()
+    {
         return view('info.razas.Humano');
     }
 }
