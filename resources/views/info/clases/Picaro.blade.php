@@ -17,6 +17,29 @@
 
         }
     </style>
+    @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+                <?php $user = \Illuminate\Support\Facades\Auth::user();
+
+                if($user->rol != 'admin'){
+                ?>
+                @include('shared.navbar_user')
+                <?php
+                }
+                else{
+                ?>
+                @include('shared.navbar_admin')
+                <?php
+                }
+                ?>
+            @else
+
+                @include('shared.navbar_sin_user')
+
+            @endauth
+        </div>
+    @endif
     <div class="container col-md-8 col-md-offset-2">
         <main>
             <div class="row" id="Enanos">
