@@ -53,11 +53,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-5 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="/inicio">Mordheim</a>
             </div>
-            <div class="col-md-5  ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="#">Dungeons & World</a>
             </div>
@@ -66,11 +66,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-5 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="/inicio">Mordheim</a>
             </div>
-            <div class="col-md-5  ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="#">Dungeons & World</a>
             </div>
@@ -79,11 +79,11 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-5 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones  animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="/inicio">Mordheim</a>
             </div>
-            <div class="col-md-5  ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
+            <div class="col-md-4 col-md-push-2 ambientaciones animate" data-animate="bounceIn" data-duration="1.0s"
                  data-delay="0.1s">
                 <a href="#">Dungeons & World</a>
             </div>
