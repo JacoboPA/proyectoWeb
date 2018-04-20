@@ -8,7 +8,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" id="logo"><img
+            <a class="glyphicon glyphicon-circle-arrow-left" href="/"></a>
+
+            <a href="/inicio" id="logo"><img
                         src="/imagenes/mordheim_logo.png" width="180px" >
             </a>
         </div>

@@ -15,6 +15,7 @@ Route::get('/', 'PagesController@index' );
 Route::get('/historia', 'PagesController@about');
 Route::get('/inicio', 'PagesController@home' );
 Route::get('/settings','PagesController@settings');
+Route::get('/Juego2','PagesController@index2');
 
 
 Route::get('/contact', 'PJController@create');

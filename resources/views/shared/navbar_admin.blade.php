@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Auth;
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/" id="logo"><img
+            <a class="glyphicon glyphicon-circle-arrow-left" href="/"></a>
+            <a class="navbar-brand" href="/inicio" id="logo"><img
                         src="http://invisioncommunity.co.uk/wp-content/uploads/2016/11/mordheim_logo.png" width="180px"></a>
         </div>
         <!-- Navbar Right -->

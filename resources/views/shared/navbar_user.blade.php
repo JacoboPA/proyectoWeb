@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Auth;
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"><img
+            <a class="glyphicon glyphicon-circle-arrow-left" href="/"></a>
+
+            <a href="/inicio"><img
                         src="/imagenes/mordheim_logo.png" width="180px"></a>
         </div>
         <!-- Navbar Right -->
