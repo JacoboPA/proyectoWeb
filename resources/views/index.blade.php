@@ -54,16 +54,19 @@
             <div class="col-md-11 col-md-push-1">
                 <div class="row">
                     <div class=" col-md-4 juego">
-                        <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                        <a href="/inicio" id="Mordheim"><h1>Mordheim</h1></a>
+                        <a href="/inicio" >
+                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
+                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
                     </div>
                     <div class=" col-md-4 juego">
-                        <img src="http://garesys.com/media/games/images/list/si_senor_oscuro_p.jpg" width="70%" height="30%">
-                        <a href="/Juego2" id="Juego2"><h1>Juego 2</h1></a>
+                        <a href="/Juego2" >
+                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
+                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
                     </div>
                     <div class=" col-md-4 juego">
-                        <img src="http://www.warpig-games.cl/3664-large_default/dungeon-world.jpg" width="70%" height="30%">
-                        <a href="/Juego3" id="Juego3"><h1>Juego 3</h1></a>
+                        <a href="/Juego3" >
+                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
+                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
                     </div>
                 </div>
             </div>
