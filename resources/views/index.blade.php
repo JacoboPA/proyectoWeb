@@ -56,17 +56,17 @@
                     <div class=" col-md-4 juego">
                         <a href="/inicio" >
                             <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
+                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
                     </div>
                     <div class=" col-md-4 juego">
                         <a href="/Juego2" >
                             <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
+                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
                     </div>
                     <div class=" col-md-4 juego">
                         <a href="/Juego3" >
                             <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" class="animated bounceInRight">Mordheim</h1></strong></a>
+                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
                     </div>
                 </div>
             </div>
