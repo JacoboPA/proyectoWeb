@@ -1,76 +1,141 @@
 @extends('master_juegos')
 @section('title', 'Mordheim')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="myCarousel" class="carousel" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+    <style>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="https://i.ytimg.com/vi/CSJKYidKIeM/maxresdefault.jpg" alt="Los Angeles">
-                            <div class="carousel-caption">
-                                <h1>Munchkin</h1>
-                            </div>
+
+        li:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            width: 0;
+            background-color: #97ae51;
+            animation: width 0.5s;
+            transition: all 0.4s;
+            border-radius: 2px;
+        }
+
+        li:hover:before {
+            width: 50%;
+        }
+
+        .container div {
+            padding-top: 2vh;
+            color: white;
+            font-size: large;
+        }
+
+        .container div img {
+            transition: transform .2s;
+            transition: .2s;
+        }
+
+        .container div img:hover {
+            transform: scale(1.1);
+            border-radius: 100px;
+            opacity: 0.5;
+
+        }
+
+        .fondo {
+            background-image: url("https://dcgamedevblog.files.wordpress.com/2014/09/game-bg-1.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+
+    </style>
+
+    <div>
+        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/gallery_big/public/media/image/2016/11/mass-effect-andromeda_3.jpg?itok=HbVQLoOD"
+             width="100%" height="80%">
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " id="barra">
+        <a class="navbar-brand" href="#">RolGame</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02" id="barra">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Quienes somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dudas y preguntas</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="fondo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="/inicio">
+                        <div class="panel-body"><img src="http://mordheim-cityofthedamned.com/home/img/mordheim-55.jpg"
+                                                     class="img-responsive" style="width:100%" height="50%" alt="Image">
                         </div>
-
-                        <div class="item">
-                            <img src="https://i.pinimg.com/originals/ca/82/e4/ca82e4a216bfaceaae89a5c7237cd852.png"
-                                 alt="Chicago">
-                            <div class="carousel-caption">
-                                <h1>La sombra del Rey demonio</h1>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="http://1.bp.blogspot.com/-QULbRuqE_9k/U44JxuV11GI/AAAAAAAAE7M/d4NQW7WM6oI/s1600/warhammer1.jpg"
-                                 alt="New York">
-                            <div class="carousel-caption">
-                                <h1>Warhammer Fantasy</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
+                        <div class="panel-footer">Mordheim</div>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="panel-body"><img
+                                    src="https://vignette.wikia.nocookie.net/warhammerfb/images/e/ee/Third_Battle_of_Black_Fire_Pass.jpg/revision/latest?cb=20150716213254"
+                                    class="img-responsive" height="50%" style="width:100%" alt="Image"></div>
+                        <div class="panel-footer">Warhammer</div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="panel-body"><img
+                                    src="https://i0.wp.com/julioromacho.net/wp-content/uploads/2017/07/munchkin-1.png?fit=620%2C361"
+                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                        <div class="panel-footer">Munchkin</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="panel-body"><img
+                                    src="http://cdn.playbuzz.com/cdn/b58bcc4d-e6fc-44d5-a699-2e86ec43ecd0/5bcaa381-79fe-4070-b2c6-b299309f8f1a.jpg"
+                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                        <div class="panel-footer">Dungeons & Dragons</div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="panel-body"><img
+                                    src="http://www.warpig-games.cl/3664-large_default/dungeon-world.jpg"
+                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                        <div class="panel-footer">Dungeons World</div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">
+                        <div class="panel-body"><img
+                                    src="https://i2.wp.com/collectible506.com/wp-content/uploads/2017/06/maxresdefault-20.jpg?resize=672%2C372&ssl=1"
+                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                        <div class="panel-footer">Zombicide</div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row" id="juegos">
-            <div class="col-md-11 col-md-push-1">
-                <div class="row">
-                    <div class=" col-md-4 juego">
-                        <a href="/inicio" >
-                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
-                    </div>
-                    <div class=" col-md-4 juego">
-                        <a href="/Juego2" >
-                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
-                    </div>
-                    <div class=" col-md-4 juego">
-                        <a href="/Juego3" >
-                            <img src="http://mordheim-cityofthedamned.com/img/og_image.jpg" width="70%" height="30%">
-                            <strong><h1 id="Mordheim" >Mordheim</h1></strong></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 @endsection
