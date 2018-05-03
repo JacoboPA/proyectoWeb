@@ -88,7 +88,7 @@
                 <div class="col-md-4">
                     <a href="/inicio">
                         <div class="panel-body"><img src="http://mordheim-cityofthedamned.com/home/img/mordheim-55.jpg"
-                                                     class="img-responsive" style="width:100%" height="50%" alt="Image">
+                                                     class="img-responsive" style="width:100%" height="30%" alt="Image">
                         </div>
                         <div class="panel-footer">Mordheim</div>
                     </a>
@@ -97,7 +97,7 @@
                     <a href="#">
                         <div class="panel-body"><img
                                     src="https://vignette.wikia.nocookie.net/warhammerfb/images/e/ee/Third_Battle_of_Black_Fire_Pass.jpg/revision/latest?cb=20150716213254"
-                                    class="img-responsive" height="50%" style="width:100%" alt="Image"></div>
+                                    class="img-responsive" height="30%" style="width:100%" alt="Image"></div>
                         <div class="panel-footer">Warhammer</div>
                     </a>
                 </div>
@@ -105,7 +105,7 @@
                     <a href="#">
                         <div class="panel-body"><img
                                     src="https://i0.wp.com/julioromacho.net/wp-content/uploads/2017/07/munchkin-1.png?fit=620%2C361"
-                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                                    class="img-responsive" style="width:100%" height="30%" alt="Image"></div>
                         <div class="panel-footer">Munchkin</div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     <a href="#">
                         <div class="panel-body"><img
                                     src="http://cdn.playbuzz.com/cdn/b58bcc4d-e6fc-44d5-a699-2e86ec43ecd0/5bcaa381-79fe-4070-b2c6-b299309f8f1a.jpg"
-                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                                    class="img-responsive" style="width:100%" height="30%" alt="Image"></div>
                         <div class="panel-footer">Dungeons & Dragons</div>
                     </a>
                 </div>
@@ -123,7 +123,7 @@
                     <a href="#">
                         <div class="panel-body"><img
                                     src="http://www.warpig-games.cl/3664-large_default/dungeon-world.jpg"
-                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                                    class="img-responsive" style="width:100%" height="30%" alt="Image"></div>
                         <div class="panel-footer">Dungeons World</div>
                     </a>
                 </div>
@@ -131,7 +131,7 @@
                     <a href="#">
                         <div class="panel-body"><img
                                     src="https://i2.wp.com/collectible506.com/wp-content/uploads/2017/06/maxresdefault-20.jpg?resize=672%2C372&ssl=1"
-                                    class="img-responsive" style="width:100%" height="50%" alt="Image"></div>
+                                    class="img-responsive" style="width:100%" height="30%" alt="Image"></div>
                         <div class="panel-footer">Zombicide</div>
                     </a>
                 </div>
