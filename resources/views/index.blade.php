@@ -72,10 +72,10 @@
                     <a class="nav-link" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Quienes somos</a>
+                    <a class="nav-link" href="/About">Quienes somos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dudas y preguntas</a>
+                    <a class="nav-link" href="/Answers">Dudas y preguntas</a>
                 </li>
 
             </ul>
