@@ -9,7 +9,7 @@
 $ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
 function conectar()
 {
-    $conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
+    $conexion = mysqli_connect("127.0.0.1", "root", "1234", "homestead");
     return $conexion;
 }
 
