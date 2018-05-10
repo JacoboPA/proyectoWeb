@@ -35,9 +35,9 @@
         <div class="panel panel-default">
 
 
-                <div class="jumbotron ">
-                    <h2> Personajes de ...<?php $user = Auth::user(); echo $user->name;?></h2>
-                </div>
+            <div class="jumbotron ">
+                <h2> Personajes de ...<?php $user = Auth::user(); echo $user->name;?></h2>
+            </div>
 
             <div class="row">
                 @if(session('status'))
@@ -70,48 +70,52 @@
 
                                     <div class="row">
                                         <div class="col-md-12  mas" style="display: none;" id="avatar_pj">
-                                            @if($pj->imagen == '')
-                                                <img src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
-                                            @else
-                                                <img src="{{$pj->imagen}}" width="100%" height="30%">
-                                            @endif
+                                            <a href="#demo" data-toggle="collapse">
+                                                @if($pj->imagen == '')
+                                                    <img src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
+                                                @else
+                                                    <img src="{{$pj->imagen}}" width="100%" height="30%">
+                                                @endif
+                                            </a>
+                                            <div id="demo" class="collapse">
+                                                hola chicos
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                    <div class="row">
 
 
-                                    <div class="col-md-2 col-md-push-1">
-                                        <a
-                                                href="{{url('personajes/'.$pj->nombre.'/edit')}}">
-                                            <button class="btn btn-light-green">Modificar
-                                            </button>
-                                        </a>
+                                        <div class="col-md-2 col-md-push-1">
+                                            <a
+                                                    href="{{url('personajes/'.$pj->nombre.'/edit')}}">
+                                                <button class="btn btn-light-green">Modificar
+                                                </button>
+                                            </a>
+                                        </div>
+
                                     </div>
 
+
                                 </div>
 
 
+                                <?php $existe += 1;?>
+
+
+
+                                @endif
+                                @endforeach
                             </div>
-
-
-                            <?php $existe += 1;?>
-
+                            <div>
+                                <button class="btn btn-danger">Borrar Todos</button>
+                            </div>
+                            @if($existe == 0)
+                                <p><h3>No hay personajes creados </h3></p>
+                            @endif
 
 
                         @endif
-                    @endforeach
                 </div>
-                <div>
-                    <button class="btn btn-danger">Borrar Todos</button>
-                </div>
-                @if($existe == 0)
-                    <p><h3>No hay personajes creados </h3></p>
-                @endif
-
-
-            @endif
         </div>
-    </div>
 
-@endsection﻿
+        @endsection﻿
