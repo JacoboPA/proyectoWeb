@@ -10,6 +10,9 @@
         .imagen:hover {
             opacity: 0.8;
         }
+        a{
+            text-decoration: none!important;
+        }
     </style>
     @if (Route::has('login'))
         <div class="top-right links">
@@ -66,7 +69,7 @@
 
                             <div class="col-md-4">
 
-                                <a href="{{url('personajes/'.$pj->nombre)}}">
+                                <a href="{{url('personajes/'.$pj->nombre)}}" class="enlace">
 
                                     @if($pj->imagen == '')
                                         <img class="img-circle imagen col-md-push-1"
@@ -75,6 +78,13 @@
                                         <img class="img-circle imagen col-md-push-1" src="{{$pj->imagen}}">
                                     @endif
 
+                                    <div class="collapse">
+                                        <h3>Nombre: {{$pj->nombre}}</h3>
+                                        <p>
+                                            Clase : {{$pj->clase}}<br>
+                                            Raza  : {{$pj->raza}}
+                                        </p>
+                                    </div>
                                 </a>
 
 
