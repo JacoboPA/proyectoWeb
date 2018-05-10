@@ -3,7 +3,6 @@ $(window).ready(function () {
     $("#personaje_clase").addClass("animated fadeInRight");
     $("#personaje_historia").addClass("animated fadeInRight");
     $("#personaje_info").addClass("animated fadeIn");
-    $('.animate').scrolla();
 
 
 })
