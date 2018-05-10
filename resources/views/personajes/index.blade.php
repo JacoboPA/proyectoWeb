@@ -70,14 +70,14 @@
 
                                     <div class="row">
                                         <div class="col-md-12  mas" style="display: none;" id="avatar_pj">
-                                            <a href="#demo{{$pj->name}}" data-toggle="collapse">
+                                            <a href="#demo{{$pj->nombre}}" data-toggle="collapse">
                                                 @if($pj->imagen == '')
                                                     <img src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
                                                 @else
                                                     <img src="{{$pj->imagen}}" width="100%" height="30%">
                                                 @endif
                                             </a>
-                                            <div id="demo{{$pj->name}}" class="collapse">
+                                            <div id="demo{{$pj->nombre}}" class="collapse">
                                                 hola chicos
                                             </div>
                                         </div>
