@@ -141,4 +141,18 @@ class PJController extends Controller
         return redirect('/personajes')->with('status', $slug.' borrado');
         //return view('personajes.index')->with('status','personaje '.$slug.' ha sido borrado');
     }
+    public function destroy_admin($slug)
+    {
+        $personaje = Personaje::wherenombre($slug)->firstOrFail();
+        $personaje->delete();
+        return redirect('/personajes/admin')->with('status', $slug.' borrado');
+        //return view('personajes.index')->with('status','personaje '.$slug.' ha sido borrado');
+    }
+
+    public function delete_all()
+    {
+        $personajes = Personaje::all();
+        $personajes->delete();
+        return view('personajes.index',compact('personajes'));
+    }
 }

@@ -27,6 +27,8 @@ Route::get('/personajes/{slug?}','PJController@show');
 Route::get('/personajes/{slug?}/edit','PJController@edit');
 Route::post('/personajes/{slug?}/edit','PJController@update');
 Route::post('/personajes/{slug?}/delete','PJController@destroy');
+Route::post('/personajes/{slug?}/delete','PJController@destroy_admin');
+Route::post('/personajes/delete','PJController@delete_all');
 
 
 Route::get('/Humanos','PagesController@Human');

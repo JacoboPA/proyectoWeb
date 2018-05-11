@@ -89,7 +89,7 @@
                                 </a>
 
                                 <button class="btn btn-info" data-toggle="collapse"
-                                        data-target="#demo{{$pj->nombre}}">
+                                        data-target="#demo{{$pj->nombre}}" style="display: none" id="boton_info_pj">
                                     + Info
                                 </button>
                                 <div class="collapse" id="demo{{$pj->nombre}}">
@@ -100,10 +100,17 @@
                                         Raza : {{$pj->raza}}
                                     </p>
                                 </div>
-                                <a href="{{url('personajes/'.$pj->nombre.'/edit')}}">
-                                    <button class="btn btn-light-green col-md-push-1">Modificar
-                                    </button>
-                                </a>
+                                <div class="row">
+                                    <a href="{{url('personajes/'.$pj->nombre.'/edit')}}">
+                                        <button class="btn btn-light-green col-md-push-1">Modificar
+                                        </button>
+                                    </a>
+                                    <form method="post"
+                                          action="{!! action('PJController@destroy',$pj->nombre) !!}">
+                                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                                        <button class="btn btn-danger col-md-push-1">Borrar</button>
+                                    </form>
+                                </div>
 
 
                             </div>
@@ -117,7 +124,11 @@
                     @endforeach
                 </div>
                 <div class="row">
-                    <button class="btn btn-danger col-md-push-1">Borrar Todos</button>
+                    <form action="{!! action('PJController@delete_all') !!}">
+                        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                        <button class="btn btn-danger col-md-push-1">Borrar Todos</button>
+                    </form>
+
                 </div>
                 @if($existe == 0)
                     <p><h3>No hay personajes creados </h3></p>
