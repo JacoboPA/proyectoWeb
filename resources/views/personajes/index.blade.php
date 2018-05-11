@@ -10,8 +10,9 @@
         .imagen:hover {
             opacity: 0.8;
         }
-        a{
-            text-decoration: none!important;
+
+        a {
+            text-decoration: none !important;
         }
     </style>
     @if (Route::has('login'))
@@ -77,17 +78,28 @@
                                     @else
                                         <img class="img-circle imagen col-md-push-1" src="{{$pj->imagen}}">
                                     @endif
-
                                     <div class="collapse">
+
                                         <h3>Nombre: {{$pj->nombre}}</h3>
                                         <p>
                                             Clase : {{$pj->clase}}<br>
-                                            Raza  : {{$pj->raza}}
+                                            Raza : {{$pj->raza}}
                                         </p>
                                     </div>
                                 </a>
 
+                                <button class="btn btn-info" data-toggle="collapse"
+                                        data-target="#demo{{$pj->nombre}}">
+                                    + Info
+                                </button>
+                                <div class="collapse" id="demo{{$pj->nombre}}">
 
+                                    <h3>Nombre: {{$pj->nombre}}</h3>
+                                    <p>
+                                        Clase : {{$pj->clase}}<br>
+                                        Raza : {{$pj->raza}}
+                                    </p>
+                                </div>
                                 <a href="{{url('personajes/'.$pj->nombre.'/edit')}}">
                                     <button class="btn btn-light-green col-md-push-1">Modificar
                                     </button>
