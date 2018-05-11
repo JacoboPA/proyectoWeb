@@ -56,6 +56,7 @@
 
                             <div class="col-md-12 panel panel-default">
 
+                                <h2>Personaje de {{$pj->name}}</h2>
                                 <a href="{{url('personajes/'.$pj->nombre)}}" class="enlace">
 
                                     @if($pj->imagen == '')
