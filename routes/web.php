@@ -21,6 +21,7 @@ Route::get('/Juego2','PagesController@index2');
 Route::get('/contact', 'PJController@create');
 Route::post('/contact','PJController@store');
 
+
 Route::get('/personajes/admin','PJController@index_admin');
 Route::get('/personajes','PJController@index');
 Route::get('/personajes/{slug?}','PJController@show');

@@ -64,15 +64,26 @@ class PJController extends Controller
        // $historia=$request->get('historia');
         //$historia_formato=nl2br($historia);
         $user = Auth::user();
+
+        if($request->get('imagen')=='' && $request->file('archivo') != null){
+           $imagen = $request->file('archivo')->store('avatares');
+        }
+        else{
+            $imagen = $request->get('imagen');
+
+        }
         $ticket = new Personaje(array(
             'clase' => $request->get('clase'),
             'raza' => $request->get('raza'),
             'nombre' => $request->get('nombre'),
             'historia' => $request->get('historia'),
-            'imagen' =>$request->get('imagen'),
+            'imagen' =>$imagen,
             'name' =>$user->name,
         ));
         $ticket->save();
+
+        //Personaje::create($request->all());
+
 
 /*
         Mail::send('personajes.welcome',$data,function ($message){ //carpeta personajes , archivo welcome.blade.php

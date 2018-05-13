@@ -33,7 +33,7 @@
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component" id="creacion_pj">
 
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 <!--las siguientes líneas nos muestran los errores a la hora de recorrer el array de la peticion http-->
                 @foreach($errors->all() as $error)
                     <p class="alert alert-danger">{{$error}}</p>
@@ -69,7 +69,8 @@
 
                         </div>
                         <div class="row">
-                            <label class="radio-inline"><input type="radio" name="raza" value="Elfo" class="raza">Elfo</label>
+                            <label class="radio-inline"><input type="radio" name="raza" value="Elfo"
+                                                               class="raza">Elfo</label>
                             <label class="radio-inline"><input type="radio" name="raza" value="Humano" class="raza">Humano</label>
                             <label class="radio-inline"><input type="radio" name="raza" value="Enano" class="raza">Enano</label>
                         </div>
@@ -96,9 +97,16 @@
                         <div class="col-lg-6">
                             <textarea class="form-control" rows="1" id="content" name="imagen"></textarea>
                             <span class="help-block">Avatar de tu personaje(inserta una url)</span>
+
                         </div>
 
                     </div>
+
+                    <p>
+                        <label for="archivo" class="col-lg-2">Sube tu avatar</label>
+                        <input name="archivo" type="file"  class="col-md-4">
+
+                    </p>
 
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
