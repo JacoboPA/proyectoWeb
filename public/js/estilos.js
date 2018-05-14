@@ -6,7 +6,30 @@ $(window).ready(function () {
 
 
 })
+$("#archivo_subida").change(function () {
+    var imagen_nueva = $("#archivo_subida").val();
 
+    $.ajax({
+        url: "carga_archivos.php",
+        type: "GET",
+        data: {imagen:imagen_nueva},
+        beforeSend: function () {
+            //imagen de carga
+            document.getElementById("imagen_subida").style.display = 'block';
+            setTimeout(function () {
+                document.getElementById("imagen_subida").style.display = 'none';
+            }, 2000)
+        }
+
+    })
+        .done(function (request) {
+            alert(request.val());
+
+        })
+        .error(function () {
+            alert("ha habido un problema");
+        })
+})
 
 $("#name").keydown(function () {
     var nombre = $("#name").val();

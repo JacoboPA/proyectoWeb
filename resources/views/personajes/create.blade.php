@@ -96,7 +96,7 @@
                         <label for="content" class="col-lg-2 control-label">Avatar</label>
                         <div class="col-lg-6">
                             <textarea class="form-control" rows="1" id="content" name="imagen"></textarea>
-                            <span class="help-block">Avatar de tu personaje(inserta una url)</span>
+                            <span class="help-block">Avatar de tu personaje(inserta una url)</span><br>
 
                         </div>
 

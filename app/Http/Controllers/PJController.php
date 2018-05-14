@@ -22,7 +22,7 @@ class PJController extends Controller
     {
         //$personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
 
-        $personajes = Personaje::paginate(4);
+        $personajes = Personaje::paginate(5);
 
         // si quisieramos SOLO los de un usuario , sería
         /*
@@ -135,10 +135,18 @@ class PJController extends Controller
     {
         //función para poder actualizar la información de un ticket
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
+        if($request->get('imagen')=='' && $request->file('archivo') != null){
+            $imagen = $request->file('archivo')->store('avatares');
+        }
+        else{
+            $imagen = $request->get('imagen');
+
+        }
+        
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
         $ticket->historia = $request->get('historia');
-        $ticket->imagen = $request->get('imagen');
+        $ticket->imagen = $imagen;
 
         $ticket->save();
         return redirect('/personajes')->with('status','personaje actualizado');

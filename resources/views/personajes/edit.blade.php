@@ -2,10 +2,17 @@
 @section('title', 'Edita tu personaje')
 
 @section('content')
+    <style>
+        #imagen_subida{
+            position: absolute;
+            left: 110px;
+            top:120px;
+        }
+    </style>
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
 
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
 
                 @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error }}</p>
@@ -35,16 +42,19 @@
                             @if($personaje->imagen == '')
                                 <img src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105"
                                      class="animated tada infinite">
+                            @elseif($personaje->imagen[0]=='h')
+                                <img class="img-circle imagen col-md-push-1 animated bounce" width="90%" src="{{$personaje->imagen}}">
                             @else
-                                <img src="{{$personaje->imagen}}" width="100%" height="50%"
-                                     class="animated bounce">
+                                <img class="img-circle imagen col-md-push-1 animated bounce" width="90%" src="/avatares/{{$personaje->imagen}}">
                             @endif
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Lightness_rotate_36f_cw.gif" style="display: none" width="40%"   id="imagen_subida">
                         </article>
 
                         <div class="col-md-4 col-md-push-1">
                             <input type="text" id="imagen" name="imagen" value="{{$personaje->imagen}}"
                                    class="form-control" placeholder="cambia tu avatar">
 
+                            <input name="archivo" type="file" id="archivo_subida" >
                         </div>
 
                         <div class="row col-md-5 col-md-push-1">
