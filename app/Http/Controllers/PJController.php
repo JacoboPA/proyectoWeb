@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Requests\PJformRequest;
 use App\Personaje;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +20,10 @@ class PJController extends Controller
      */
     public function index()
     {
-        $personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
+        //$personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
+
+        $personajes = Personaje::paginate(4);
+
         // si quisieramos SOLO los de un usuario , sería
         /*
          * $user = Auth::user();

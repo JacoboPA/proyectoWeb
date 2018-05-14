@@ -62,7 +62,9 @@
                 <p><h3 class="container"> No hay personajes.</h3></p>
             @else
 
-                <?php $existe = 0;?>
+                <?php
+                $existe = 0;
+                ?>
                 <div class="row">
                     @foreach($personajes as $pj)
 
@@ -125,6 +127,14 @@
                         @endif
                     @endforeach
                 </div>
+                <div class="row">
+                    <div class="col-md-push-2">
+                        {{$personajes->links()}}
+
+                    </div>
+
+                </div>
+
                 <div class="row">
                     <form action="{!! action('PJController@delete_all') !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
