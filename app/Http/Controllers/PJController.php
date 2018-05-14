@@ -22,7 +22,7 @@ class PJController extends Controller
     {
         //$personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
 
-        $personajes = Personaje::paginate(5);
+        $personajes = Personaje::paginate(3);
 
         // si quisieramos SOLO los de un usuario , sería
         /*
@@ -142,7 +142,7 @@ class PJController extends Controller
             $imagen = $request->get('imagen');
 
         }
-        
+
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
         $ticket->historia = $request->get('historia');
