@@ -8,7 +8,9 @@
             background-color: #778899;
             color: lightgrey;
         }
-
+        #imagen_pj img{
+            width: 100%;
+        }
 
     </style>
     @if (Route::has('login'))
