@@ -7,9 +7,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class Personaje extends Model
 {
-    protected $fillable = ['clase','raza','nombre','historia','imagen','name'];
+    /*
+     * cualquier modificacion que se quiera hacer , ya sea verificar algo o devolver algo , se hace aquí.
+     */
+    protected $fillable = ['clase', 'raza', 'nombre', 'historia', 'imagen', 'name'];
 
-    function  getNombre(){
-        $this->nombre;
+    function getNombre()
+    {
+        return $this->nombre;
+    }
+    function getImagen(){
+        return $this->imagen;
+    }
+
+    function getAvatar()
+    {
+        if ($this->imagen)
+            if ($this->imagen[0] == 'h')
+                return asset($this->imagen);
+            else
+                return asset('/avatares/' . $this->imagen);
+        else
+            return asset('https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105');
+    }
+
+    function getHistoria(){
+        /*
+         * seguramente aquí se pueda formatear la historia y asignar los párrafos pertinentes.
+         */
     }
 }

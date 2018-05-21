@@ -8,11 +8,15 @@ $(window).ready(function () {
 })
 $("#archivo_subida").change(function () {
     var imagen_nueva = $("#archivo_subida").val();
+    nombre = $('#nombre').val();
+    srcImagen = $('#' + nombre + '_imagen').attr('src');
+    $avatarForm = $('#avatarForm');
 
     $.ajax({
-        url: "carga_archivos.php",
+
+        url: "/cambioImagen",
         type: "GET",
-        data: {imagen:imagen_nueva},
+        data: {"imagen_nueva" : imagen_nueva},
         beforeSend: function () {
             //imagen de carga
             document.getElementById("imagen_subida").style.display = 'block';
@@ -20,15 +24,24 @@ $("#archivo_subida").change(function () {
                 document.getElementById("imagen_subida").style.display = 'none';
             }, 2000)
         }
-
     })
+
         .done(function (request) {
-            alert(request.val());
+            alert(request);
+           // $('#' + nombre + '_imagen').attr('src', request);
+            alert('cambio hecho ');
 
         })
         .error(function () {
             alert("ha habido un problema");
         })
+
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+            alert(textStatus);
+            alert(errorThrown);
+        })
+
 })
 
 $("#name").keydown(function () {
@@ -36,7 +49,7 @@ $("#name").keydown(function () {
 
 
     $.ajax({
-        url: "consultas.php",
+        url: "/registro_usuario",
         type: "GET",
         data: {nombre: nombre},
         beforeSend: function () {

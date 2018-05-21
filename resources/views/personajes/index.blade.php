@@ -73,15 +73,7 @@
                             <div class="col-md-4">
 
                                 <a href="{{url('personajes/'.$pj->nombre)}}" class="enlace">
-
-                                    @if($pj->imagen == '')
-                                        <img class="img-circle imagen col-md-push-1"
-                                             src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
-                                    @elseif($pj->imagen[0]=='h')
-                                        <img class="img-circle imagen col-md-push-1" src="{{$pj->imagen}}">
-                                    @else
-                                        <img class="img-circle imagen col-md-push-1" src="/avatares/{{$pj->imagen}}">
-                                    @endif
+                                    <img class="img-circle imagen col-md-push-1" src="{{$pj->getAvatar()}}">
                                     <div class="collapse">
 
                                         <h3>Nombre: {{$pj->nombre}}</h3>
@@ -114,6 +106,8 @@
                                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                                         <button class="btn btn-danger col-md-push-1">Borrar</button>
                                     </form>
+
+
                                 </div>
 
 
@@ -136,7 +130,8 @@
                 </div>
 
                 <div class="row">
-                    <form action="{!! action('PJController@delete_all') !!}">
+                    <form method="post"
+                          action="{!! action('PJController@delete_all') !!}">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                         <button class="btn btn-danger col-md-push-1">Borrar Todos</button>
                     </form>

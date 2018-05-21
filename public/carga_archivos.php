@@ -5,6 +5,6 @@
  * Date: 14/05/2018
  * Time: 17:56
  */
-$imagen = $_GET['imagen'];
+$imagen = $_GET['imagen_nueva'];
 
 echo $imagen;
