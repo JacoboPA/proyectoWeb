@@ -32,7 +32,9 @@ Route::post('/personajes/admin/{slug?}/delete','PJController@destroy_admin');
 Route::post('/personajes/delete','PJController@delete_all');
 
 Route::get('/registro_usuario','PJController@cargar_archivos');
-Route::get('/cambioImagen','PJController@cambiar_imagen');
+
+Route::post('/perfil/foto', 'PJController@updatePhoto');
+
 
 Route::get('/Humanos','PagesController@Human');
 Route::get('/Enanos', 'PagesController@Dwarf');

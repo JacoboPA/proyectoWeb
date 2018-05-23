@@ -60,11 +60,14 @@
             </div>
             @if ($personajes->isEmpty())
                 <p><h3 class="container"> No hay personajes.</h3></p>
+                <p>
+                    <a href="/contact">
+                        <button class="btn btn-info">Crear Personaje</button>
+                    </a>
+                </p>
             @else
 
-                <?php
-                $existe = 0;
-                ?>
+
                 <div class="row">
                     @foreach($personajes as $pj)
 
@@ -114,7 +117,7 @@
                             </div>
 
 
-                            <?php $existe += 1;?>
+
 
 
 
@@ -137,9 +140,7 @@
                     </form>
 
                 </div>
-                @if($existe == 0)
-                    <p><h3>No hay personajes creados </h3></p>
-                @endif
+
 
 
             @endif

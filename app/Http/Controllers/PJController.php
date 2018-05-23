@@ -80,7 +80,7 @@ class PJController extends Controller
 
 
         if ($request->get('imagen') == '' && $request->file('archivo') != null) {
-            $imagen = $request->file('archivo')->storeAs('avatares/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
+            $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
@@ -147,7 +147,7 @@ class PJController extends Controller
         //función para poder actualizar la información de un ticket
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
         if ($request->get('imagen') == '' && $request->file('archivo') != null) {
-            $imagen = $request->file('archivo')->storeAs('avatares/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
+            $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
@@ -188,14 +188,13 @@ class PJController extends Controller
     }
 
 
-
     public function delete_all()
     {
         $personajes = Personaje::all();
-        foreach ($personajes as $pj){
+        foreach ($personajes as $pj) {
             $pj->delete();
         }
-        return redirect('/personajes')->with('status','se han borrado todos los personajes');
+        return redirect('/personajes')->with('status', 'se han borrado todos los personajes');
     }
 
     public function cargar_archivos()
@@ -217,11 +216,18 @@ class PJController extends Controller
         }
     }
 
-    public function cambiar_imagen(Request $request)
+
+
+    public function updatePhoto(Request $request)
     {
-        $imagen = $request->file('archivo')->store('avatares');
+        $user = Auth::user();
+
+        $this->validate($request, [
+            'photo' => 'required|image'
+        ]);
+        $file = $request->file('photo');
+        $imagen = $file->storeAs('temporales',$user->name.$request->file('photo')->getATime().'.'.$request->file('photo')->getClientOriginalExtension());
 
         return $imagen;
-
     }
 }

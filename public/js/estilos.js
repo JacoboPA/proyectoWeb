@@ -6,43 +6,49 @@ $(window).ready(function () {
 
 
 })
-$("#archivo_subida").change(function () {
-    var imagen_nueva = $("#archivo_subida").val();
+
+$(function () {
     nombre = $('#nombre').val();
-    srcImagen = $('#' + nombre + '_imagen').attr('src');
+
+    var $avatarImage, $avatarInput, $avatarForm;
+
+    $avatarImage = $('#' + nombre + '_imagen');
+    $avatarInput = $('#avatarInput');
     $avatarForm = $('#avatarForm');
 
-    $.ajax({
+    $avatarImage.on('click', function () {
+        $avatarInput.click();
+    });
 
-        url: "/cambioImagen",
-        type: "GET",
-        data: {"imagen_nueva" : imagen_nueva},
-        beforeSend: function () {
-            //imagen de carga
-            document.getElementById("imagen_subida").style.display = 'block';
-            setTimeout(function () {
-                document.getElementById("imagen_subida").style.display = 'none';
-            }, 2000)
-        }
-    })
+    $avatarInput.on('change', function () {
+        var formData = new FormData();
+        formData.append('photo', $avatarInput[0].files[0]);
 
-        .done(function (request) {
-            alert(request);
-           // $('#' + nombre + '_imagen').attr('src', request);
-            alert('cambio hecho ');
+        $.ajax({
+            url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
+            method: $avatarForm.attr('method'),
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                //imagen de carga
+                document.getElementById("imagen_subida").style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById("imagen_subida").style.display = 'none';
+                }, 5300)
+            }
+        }).done(function (data) {
 
-        })
-        .error(function () {
-            alert("ha habido un problema");
-        })
+            $avatarImage.attr('src', "/avatares/"+data);
 
-        .fail(function (jqXHR, textStatus, errorThrown) {
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            alert('La imagen subida no tiene un formato correcto');
             alert(jqXHR.status);
             alert(textStatus);
             alert(errorThrown);
-        })
-
-})
+        });
+    });
+});
 
 $("#name").keydown(function () {
     var nombre = $("#name").val();

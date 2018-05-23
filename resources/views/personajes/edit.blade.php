@@ -6,7 +6,7 @@
         #imagen_subida {
             position: absolute;
             left: 110px;
-            top: 120px;
+            top: 50px;
         }
     </style>
     @if (Route::has('login'))
@@ -35,7 +35,7 @@
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
 
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" >
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error }}</p>
@@ -63,7 +63,7 @@
                     <div class="row">
 
                         <article class="col-md-5 col-md-push-1">
-                            <img class="  col-md-push-1 animated bounce" width="90%"
+                            <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
                                  src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Lightness_rotate_36f_cw.gif"
                                  style="display: none" width="40%" id="imagen_subida">
@@ -72,10 +72,21 @@
                         <div class="col-md-4 col-md-push-1">
                             <input type="text" id="imagen" name="imagen" value="{{$personaje->imagen}}"
                                    class="form-control" placeholder="cambia tu avatar">
-                            <form enctype="multipart/form-data" method="post">
+
+                            <form method="post" action="{!! url('/cambioImagen') !!}"
+                                  id="avatarForm">
+                                {{ csrf_field() }}
                                 <input name="archivo" type="file" id="archivo_subida">
 
                             </form>
+
+                            <form action="{{ url('perfil/foto') }}" method="post" style="display: none" id="avatarForm">
+                                {{ csrf_field() }}
+                                <input type="file" id="avatarInput" name="photo">
+
+                            </form>
+
+
                         </div>
 
                         <div class="row col-md-5 col-md-push-1">
