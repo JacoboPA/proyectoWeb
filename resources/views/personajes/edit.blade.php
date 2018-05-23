@@ -34,45 +34,54 @@
     @endif
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
+            <h3 class="jumbotron">Edicion de Personaje</h3>
 
-            <form class="form-horizontal" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                @foreach ($errors->all() as $error)
-                    <p class="alert alert-danger">{{ $error }}</p>
-                @endforeach
+            <div class="row">
+                <article class="col-md-12">
+                    <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
+                         src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
 
-                @if (session('status'))
-                    <div class="alert alert-success">
-                        {{ session('status') }}
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Lightness_rotate_36f_cw.gif"
+                         style="display: none" width="40%" id="imagen_subida">
+                </article>
+            </div>
+
+            <div class="row">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    @foreach ($errors->all() as $error)
+                        <p class="alert alert-danger">{{ $error }}</p>
+                    @endforeach
+
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                    <div class="row">
+                        <div class="col-lg-5 col-lg-push-1">
+                            <input name="archivo" type="file" id="archivo_subida">
+                        </div>
+
                     </div>
-                @endif
-
-                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-
-                <fieldset>
-                    <legend>Edicion de Personaje</legend>
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Nombre</label>
-                        <div class="col-lg-10">
+                        <div class="col-lg-5 col-lg-push-1">
                             <input type="text" class="form-control" id="nombre" name="nombre"
                                    value="{!! $personaje->getNombre() !!}">
                         </div>
                     </div>
 
 
-                    <div class="row">
-
-                        <article class="col-md-5 col-md-push-1">
-                            <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
-                                 src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Lightness_rotate_36f_cw.gif"
-                                 style="display: none" width="40%" id="imagen_subida">
-                        </article>
-
-                        <div class="col-md-4 col-md-push-1">
+                    <div class="form-group">
+                        <label for="title" class="col-lg-2 control-label">Avatar</label>
+                        <div class="col-lg-5 col-lg-push-1">
                             <input type="text" id="imagen" name="imagen" value="{{$personaje->imagen}}"
                                    class="form-control" placeholder="cambia tu avatar">
-
+                        <!--
                             <form method="post" action="{!! url('/cambioImagen') !!}"
                                   id="avatarForm">
                                 {{ csrf_field() }}
@@ -85,22 +94,25 @@
                                 <input type="file" id="avatarInput" name="photo">
 
                             </form>
-
+-->
 
                         </div>
-
-                        <div class="row col-md-5 col-md-push-1">
-                            <div class="col-md-12">
-                                <textarea class="form-control" rows="20" id="historia"
+                    </div>
+                    <div class="form-group">
+                        <label for="title" class="col-lg-2 control-label">Historia
+                        </label>
+                        <div class="col-lg-5 col-lg-push-1">
+                                <textarea class="form-control" rows="10" id="historia"
                                           name="historia">{{$personaje->historia}}</textarea>
 
-                            </div>
                         </div>
                     </div>
 
-                </fieldset>
-                <button type="submit" class="btn btn-primary">Modificar</button>
-            </form>
+
+                    <button type="submit" class="btn btn-primary">Modificar</button>
+                </form>
+
+            </div>
 
             <div class="row">
                 <div class="col-md-6">
