@@ -146,17 +146,18 @@ class PJController extends Controller
         $user = Auth::user();
         //función para poder actualizar la información de un ticket
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
+        /*
         if ($request->get('imagen') == '' && $request->file('archivo') != null) {
             $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
         }
-
+*/
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
         $ticket->historia = $request->get('historia');
-        $ticket->imagen = $imagen;
+        $ticket->imagen = $request->get('imagen');
 
         $ticket->save();
         return redirect('/personajes')->with('status', 'personaje actualizado');
@@ -172,8 +173,8 @@ class PJController extends Controller
     {
 
         $personaje = Personaje::wherenombre($slug)->firstOrFail();
+        Storage::delete($personaje->getImagen());
         $personaje->delete();
-
         return redirect('/personajes')->with('status', $slug . ' borrado');
         //return view('personajes.index')->with('status','personaje '.$slug.' ha sido borrado');
     }
@@ -217,16 +218,15 @@ class PJController extends Controller
     }
 
 
-
     public function updatePhoto(Request $request)
     {
         $user = Auth::user();
-
+        //$personaje = Personaje::wherenombre($slug)->firstOrFail();
         $this->validate($request, [
             'photo' => 'required|image'
         ]);
         $file = $request->file('photo');
-        $imagen = $file->storeAs('temporales',$user->name.$request->file('photo')->getATime().'.'.$request->file('photo')->getClientOriginalExtension());
+        $imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
 
         return $imagen;
     }

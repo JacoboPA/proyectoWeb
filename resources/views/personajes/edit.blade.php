@@ -5,7 +5,7 @@
     <style>
         #imagen_subida {
             position: absolute;
-            left: 110px;
+            left: 450px;
             top: 50px;
         }
     </style>
@@ -35,38 +35,42 @@
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
             <h3 class="jumbotron">Edicion de Personaje</h3>
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{url('perfil/foto')}}"
+                  id="avatarForm">
+                <div class="row">
+                    <article class="col-md-12">
+                        <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
+                             src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
 
-            <div class="row">
-                <article class="col-md-12">
-                    <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
-                         src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
+
+                        <img src="https://camo.githubusercontent.com/dfc90c7a7bef0ed515007aa2527e9a6abe18f90a/687474703a2f2f66696c652e62616978696e672e6e65742f3230313531312f30383034303862616339353739613037353030633231326534306262393665652e676966"
+                             style="display: none" width="30%" id="imagen_subida">
+                    </article>
+                </div>
 
 
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Lightness_rotate_36f_cw.gif"
-                         style="display: none" width="40%" id="imagen_subida">
-                </article>
-            </div>
+                {{ csrf_field() }}
+                @foreach ($errors->all() as $error)
+                    <p class="alert alert-danger">{{ $error }}</p>
+                @endforeach
 
-            <div class="row">
-                <form class="form-horizontal" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    @foreach ($errors->all() as $error)
-                        <p class="alert alert-danger">{{ $error }}</p>
-                    @endforeach
-
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                    <div class="row">
-                        <div class="col-lg-5 col-lg-push-1">
-                            <input name="archivo" type="file" id="archivo_subida">
-                        </div>
-
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
                     </div>
+                @endif
+
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-push-1">
+
+                        <input name="archivo" type="file" id="archivo_subida">
+                    </div>
+
+                </div>
+            </form>
+            <div class="row">
+                <form class="form-horizontal" method="post" action="{{url('/personajes/'.$personaje->getNombre().'/edit')}}">
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Nombre</label>
                         <div class="col-lg-5 col-lg-push-1">

@@ -21,12 +21,13 @@ $(function () {
     });
 
     $avatarInput.on('change', function () {
-        if($avatarInput.val() != null){
-            $('#imagen').attr('value',"");
+        if ($avatarInput.val() != null) {
+            $('#imagen').attr('value', "");
 
 
         }
-        /* var formData = new FormData();
+
+         var formData = new FormData();
          formData.append('photo', $avatarInput[0].files[0]);
 
          $.ajax({
@@ -40,18 +41,20 @@ $(function () {
                  document.getElementById("imagen_subida").style.display = 'block';
                  setTimeout(function () {
                      document.getElementById("imagen_subida").style.display = 'none';
+                     document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
                  }, 5300)
              }
          }).done(function (data) {
-
+             //alert('cambio hecho ');
              $avatarImage.attr('src', "/avatares/"+data);
+             $('#imagen').attr('value',data);
 
          }).fail(function (jqXHR, textStatus, errorThrown) {
              alert('La imagen subida no tiene un formato correcto');
              alert(jqXHR.status);
              alert(textStatus);
              alert(errorThrown);
-         });*/
+         });
     });
 });
 
