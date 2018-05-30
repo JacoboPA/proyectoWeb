@@ -31,7 +31,7 @@ $(function () {
          formData.append('photo', $avatarInput[0].files[0]);
 
          $.ajax({
-             url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
+             url: "/perfil/foto" + '?' + $avatarForm.serialize(),
              method: $avatarForm.attr('method'),
              data: formData,
              processData: false,

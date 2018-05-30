@@ -35,8 +35,9 @@
     <div class="container col-md-8 col-md-offset-2">
         <div class="well well bs-component">
             <h3 class="jumbotron">Edicion de Personaje</h3>
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{url('perfil/foto')}}"
-                  id="avatarForm">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data"
+                  action="{{url('/personajes/'.$personaje->getNombre().'/edit')}}" id="avatarForm">
+
                 <div class="row">
                     <article class="col-md-12">
                         <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
@@ -68,9 +69,8 @@
                     </div>
 
                 </div>
-            </form>
-            <div class="row">
-                <form class="form-horizontal" method="post" action="{{url('/personajes/'.$personaje->getNombre().'/edit')}}">
+                <div class="row">
+
                     <div class="form-group">
                         <label for="title" class="col-lg-2 control-label">Nombre</label>
                         <div class="col-lg-5 col-lg-push-1">
@@ -114,18 +114,18 @@
 
 
                     <button type="submit" class="btn btn-primary">Modificar</button>
-                </form>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="{{url('/personajes')}}">
-                        <button class="btn btn-danger">Cancelar edicion</button>
-                    </a>
-                </div>
-            </div>
+            </form>
 
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{url('/personajes')}}">
+                    <button class="btn btn-danger">Cancelar edicion</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
     </div>
 @endsection

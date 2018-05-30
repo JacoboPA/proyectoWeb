@@ -146,18 +146,17 @@ class PJController extends Controller
         $user = Auth::user();
         //función para poder actualizar la información de un ticket
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
-        /*
         if ($request->get('imagen') == '' && $request->file('archivo') != null) {
             $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
         }
-*/
+
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
         $ticket->historia = $request->get('historia');
-        $ticket->imagen = $request->get('imagen');
+        $ticket->imagen = $imagen;
 
         $ticket->save();
         return redirect('/personajes')->with('status', 'personaje actualizado');
@@ -226,7 +225,10 @@ class PJController extends Controller
             'photo' => 'required|image'
         ]);
         $file = $request->file('photo');
-        $imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
+        
+        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('photo')->getClientOriginalExtension());
+
+        //$imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
 
         return $imagen;
     }
