@@ -41,7 +41,7 @@ $(function () {
                 //document.getElementsByClassName('imagen_pj').style.opacity(0.8);
                 //setTimeout(function () {
                     document.getElementById("imagen_subida").style.display = 'none';
-                    document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
+                    //document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
                 //}, 5000)
             }
         }).done(function (data) {
