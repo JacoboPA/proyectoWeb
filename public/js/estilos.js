@@ -39,10 +39,10 @@ $(function () {
                 document.getElementById("imagen_subida").style.display = 'block';
                 //document.getElementById("imagen_subida").style.display = 'none';
                 //document.getElementsByClassName('imagen_pj').style.opacity(0.8);
-                setTimeout(function () {
+                //setTimeout(function () {
                     document.getElementById("imagen_subida").style.display = 'none';
                     document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
-                }, 5000)
+                //}, 5000)
             }
         }).done(function (data) {
             //alert('cambio hecho ');
