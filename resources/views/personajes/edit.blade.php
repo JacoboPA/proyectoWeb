@@ -40,7 +40,7 @@
 
                 <div class="row">
                     <article class="col-md-12">
-                        <img class="  col-md-push-1 animated bounce imagen_pj" width="90%"
+                        <img class="col-md-push-1 animated bounce imagen_pj" width="90%"
                              src="{{$personaje->getAvatar()}}" id="{{$personaje->nombre}}_imagen">
 
 

@@ -8,17 +8,16 @@ $(window).ready(function () {
 })
 
 $(function () {
-    nombre = $('#nombre').val();
-
+    var nombre = $('#nombre').val();
     var $avatarImage, $avatarInput, $avatarForm;
 
     $avatarImage = $('#' + nombre + '_imagen');
     $avatarInput = $('#archivo_subida');
     $avatarForm = $('#avatarForm');
-
     $avatarImage.on('click', function () {
         $avatarInput.click();
     });
+
 
     $avatarInput.on('change', function () {
         if ($avatarInput.val() != null) {
@@ -26,35 +25,38 @@ $(function () {
 
 
         }
+        var formData = new FormData();
+        formData.append('photo', $avatarInput[0].files[0]);
+        $.ajax({
+            url: "/perfil/foto" + '?' + $avatarForm.serialize(),
+            method: $avatarForm.attr('method'),
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                //imagen de carga
+                //alert('cambiando');
+                document.getElementById("imagen_subida").style.display = 'block';
+                //document.getElementById("imagen_subida").style.display = 'none';
+                //document.getElementsByClassName('imagen_pj').style.opacity(0.8);
+                setTimeout(function () {
+                    document.getElementById("imagen_subida").style.display = 'none';
+                    document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
+                }, 5000)
+            }
+        }).done(function (data) {
+            //alert('cambio hecho ');
+            $avatarImage.attr('src', "/avatares/" + data);
+            $('#imagen').attr('value', data);
 
-         var formData = new FormData();
-         formData.append('photo', $avatarInput[0].files[0]);
 
-         $.ajax({
-             url: "/perfil/foto" + '?' + $avatarForm.serialize(),
-             method: $avatarForm.attr('method'),
-             data: formData,
-             processData: false,
-             contentType: false,
-             beforeSend: function () {
-                 //imagen de carga
-                 document.getElementById("imagen_subida").style.display = 'block';
-                 setTimeout(function () {
-                     document.getElementById("imagen_subida").style.display = 'none';
-                     document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
-                 }, 5300)
-             }
-         }).done(function (data) {
-             //alert('cambio hecho ');
-             $avatarImage.attr('src', "/avatares/"+data);
-             $('#imagen').attr('value',data);
-
-         }).fail(function (jqXHR, textStatus, errorThrown) {
-             alert('La imagen subida no tiene un formato correcto');
-             alert(jqXHR.status);
-             alert(textStatus);
-             alert(errorThrown);
-         });
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                alert('La imagen subida no tiene un formato correcto');
+                alert(jqXHR.status);
+                alert(textStatus);
+                alert(errorThrown);
+            });
     });
 });
 

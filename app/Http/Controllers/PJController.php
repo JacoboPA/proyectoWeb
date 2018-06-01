@@ -25,6 +25,7 @@ class PJController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //$personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
@@ -225,8 +226,8 @@ class PJController extends Controller
             'photo' => 'required|image'
         ]);
         $file = $request->file('photo');
-        
-        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('photo')->getClientOriginalExtension());
+
+        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . $request->file('photo')->getATime()%100 .'.' . $request->file('photo')->getClientOriginalExtension());
 
         //$imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
 
