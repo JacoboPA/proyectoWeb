@@ -42,10 +42,7 @@ $(function () {
 
             }
         }).done(function (data) {
-            setTimeout(function () {
-                document.getElementById("imagen_subida").style.display = 'none';
-                //document.getElementsByClassName("imagen_pj").style.opacity = 0.8;
-            }, 3000)
+            setTimeout(function () {document.getElementById("imagen_subida").style.display = 'none';}, 2000)
             //alert('cambio hecho ');
             $avatarImage.attr('src', "/avatares/" + data);
             $('#imagen').attr('value', data);
