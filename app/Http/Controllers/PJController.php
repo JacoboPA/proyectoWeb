@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 //aquí se incluye el modelo de Personaje.
 class PJController extends Controller
 {
-    /**
+    /*
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
