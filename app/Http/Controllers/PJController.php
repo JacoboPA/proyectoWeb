@@ -152,7 +152,7 @@ class PJController extends Controller
             Storage::delete($user->name.'/'.$request->get('nombre').'_new.'.$request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
-            
+
 
         }
 
