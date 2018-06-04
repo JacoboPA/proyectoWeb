@@ -62,7 +62,7 @@ use Illuminate\Support\Facades\Auth;
                 </li>
                 <?php $user = Auth::user();?>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" id="nombre_usuario">
                         <?php echo $user->name; ?>
                     </a>
                     <ul class="dropdown-menu">

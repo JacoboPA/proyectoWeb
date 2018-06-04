@@ -85,21 +85,6 @@
                         <div class="col-lg-5 col-lg-push-1">
                             <input type="text" id="imagen" name="imagen" value="{{$personaje->imagen}}"
                                    class="form-control" placeholder="cambia tu avatar">
-                        <!--
-                            <form method="post" action="{!! url('/cambioImagen') !!}"
-                                  id="avatarForm">
-                                {{ csrf_field() }}
-                                <input name="archivo" type="file" id="archivo_subida">
-
-                            </form>
-
-                            <form action="{{ url('perfil/foto') }}" method="post" style="display: none" id="avatarForm">
-                                {{ csrf_field() }}
-                                <input type="file" id="avatarInput" name="photo">
-
-                            </form>
--->
-
                         </div>
                     </div>
                     <div class="form-group">

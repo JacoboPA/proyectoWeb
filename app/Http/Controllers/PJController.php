@@ -156,6 +156,11 @@ class PJController extends Controller
 
 
         }
+        $imagenes = Storage::allFiles($user->name.'/');
+        foreach ($imagenes as $file){
+            if($file != $imagen)
+                Storage::delete($file);
+        }
 
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
@@ -225,7 +230,7 @@ class PJController extends Controller
             } else {
                 echo "Disponible";
             }
-            
+
         }
     }
 
