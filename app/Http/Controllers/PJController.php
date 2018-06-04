@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests\PJformRequest;
 use App\Personaje;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
@@ -149,7 +150,7 @@ class PJController extends Controller
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
         if ($request->file('archivo') != null) {
             $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
-            Storage::delete($user->name.'/'.$request->get('nombre').'_new.'.$request->file('archivo')->getClientOriginalExtension());
+            Storage::delete($user->name . '/' . $request->get('nombre') . '_new.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
@@ -203,20 +204,28 @@ class PJController extends Controller
 
     public function cargar_archivos()
     {
-        $ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
+        //$ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
 
-        $conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
+        //$conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
         $usuario = $_GET['nombre'];
-        $consulta = $conexion->query("select name from users where name='" . $usuario . "'");
+        //$consulta = $conexion->query("select name from users where name='" . $usuario . "'");
+
+        $usuarios = User::all();
+        $contador = 0;
+        foreach ($usuarios as $user) {
+            if ($user->name == $usuario) {
+                $contador++;
+            }
+        }
         if ($_GET['nombre'] == "") {
             echo "";
         } else {
-            if ($consulta->num_rows > 0) {
-                echo "no disponible";
+            if ($contador > 0) {
+                echo "No Disponible";
             } else {
-                echo "disponible";
+                echo "Disponible";
             }
-
+            
         }
     }
 
@@ -230,7 +239,7 @@ class PJController extends Controller
         ]);
         $file = $request->file('photo');
 
-        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') .'_new.' . $request->file('photo')->getClientOriginalExtension());
+        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . '_new.' . $request->file('photo')->getClientOriginalExtension());
 
         //$imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
 

@@ -25,7 +25,7 @@ Route::post('/contact','PJController@store');
 Route::get('/personajes/admin','PJController@index_admin');
 Route::get('/personajes','PJController@index');
 Route::get('/personajes/{slug?}','PJController@show');
-Route::get(ex,'PJController@edit');
+Route::get('/personajes/{slug?}/edit','PJController@edit');
 Route::post('/personajes/{slug?}/edit','PJController@update');
 Route::post('/personajes/{slug?}/delete','PJController@destroy');
 Route::post('/personajes/admin/{slug?}/delete','PJController@destroy_admin');
