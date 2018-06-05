@@ -141,6 +141,7 @@ class PJController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+
     public function update($slug, PJformRequest $request)
     {
 
@@ -156,11 +157,11 @@ class PJController extends Controller
 
 
         }
-        $imagenes = Storage::allFiles($user->name.'/');
-        foreach ($imagenes as $file){
-            if($file != $imagen)
-                Storage::delete($file);
-        }
+        /**
+         * Modificar para que busque todos los personajes existentes y en el momento en el que haya imagenes
+         * que no se correspondan con el nombre de ningún personaje , las borra.
+         */
+
 
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
@@ -242,7 +243,7 @@ class PJController extends Controller
         $this->validate($request, [
             'photo' => 'required|image'
         ]);
-        $file = $request->file('photo');
+        //$file = $request->file('photo');
 
         $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . '_new.' . $request->file('photo')->getClientOriginalExtension());
 

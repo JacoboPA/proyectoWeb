@@ -6,11 +6,16 @@ $(window).ready(function () {
 
 
 })
+
+/*
 $("#nombre").on('change',function () {
     var pathusername = $('#imagen').val();
     var ruta_imagen = pathusername.split('/');
     $('#imagen').attr('value', ruta_imagen[0]+"/"+$("#nombre").val()+".jpg");
 })
+*/
+
+
 $(function () {
     var nombre = $('#nombre').val();
     var $avatarImage, $avatarInput, $avatarForm;
