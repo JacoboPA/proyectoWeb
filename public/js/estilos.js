@@ -31,7 +31,6 @@ $(function () {
 
 
     $avatarInput.on('change', function () {
-        alert('cambiando la foto');
         if ($avatarInput.val() != null) {
             $('#imagen').attr('value', "");
 
