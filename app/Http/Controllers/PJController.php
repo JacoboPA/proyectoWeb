@@ -142,6 +142,21 @@ class PJController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
+    public function rename(Request $request)
+    {
+        $user = Auth::user();
+
+        $nombre_antiguo = $request->get('nombre_antiguo');
+        $nombre_nuevo = $request->get('nombre');
+
+        if($request->file('archivo') != null){
+            Storage::delete($user->name . '/' . $nombre_antiguo . '_new.JPG');
+        }
+
+        Storage::move($user->name . '/' .$nombre_antiguo.'.jpg',$user->name . '/' .$nombre_nuevo.'.jpg');
+    }
+
     public function update($slug, PJformRequest $request)
     {
 

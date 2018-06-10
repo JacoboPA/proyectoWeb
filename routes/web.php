@@ -32,6 +32,7 @@ Route::post('/personajes/admin/{slug?}/delete','PJController@destroy_admin');
 Route::post('/personajes/delete','PJController@delete_all');
 
 Route::get('/registro_usuario','PJController@cargar_archivos');
+Route::post('/renamePhoto','PJController@rename');
 
 Route::post('/perfil/foto', 'PJController@updatePhoto');
 
