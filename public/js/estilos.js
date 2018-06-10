@@ -37,60 +37,6 @@ $(function () {
 
 
         }
-
-        alert('cambiando foto');
-        var formData = new FormData();
-        formData.append('archivo', $avatarInput[0].files[0]);
-        $.ajax({
-            url: "/perfil/foto",
-            type: "GET",
-            data: formData,
-            beforeSend: function () {
-                //imagen de carga
-                document.getElementById("imagen_subida").style.display = 'block';
-                setTimeout(function () {
-                    document.getElementById("imagen_subida").style.display = 'none';
-                }, 5300)
-            }
-        })
-            .done(function (data) {
-
-                $avatarImage.attr('src', "/avatares/" + data);
-
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-            alert('La imagen subida no tiene un formato correcto');
-            alert(jqXHR.status);
-            alert(textStatus);
-            alert(errorThrown);
-        });
-
-        /* var formData = new FormData();
-         formData.append('photo', $avatarInput[0].files[0]);
-
-         $.ajax({
-             url: $avatarForm.attr('action') + '?' + $avatarForm.serialize(),
-             method: $avatarForm.attr('method'),
-             data: formData,
-             processData: false,
-             contentType: false,
-             beforeSend: function () {
-                 //imagen de carga
-                 document.getElementById("imagen_subida").style.display = 'block';
-                 setTimeout(function () {
-                     document.getElementById("imagen_subida").style.display = 'none';
-                 }, 5300)
-             }
-         }).done(function (data) {
-
-             $avatarImage.attr('src', "/avatares/"+data);
-
-         }).fail(function (jqXHR, textStatus, errorThrown) {
-             alert('La imagen subida no tiene un formato correcto');
-             alert(jqXHR.status);
-             alert(textStatus);
-             alert(errorThrown);
-         });*/
-
         var formData = new FormData();
         formData.append('photo', $avatarInput[0].files[0]);
         $.ajax({
@@ -120,7 +66,6 @@ $(function () {
                 alert(textStatus);
                 alert(errorThrown);
             });
-
     });
 });
 
