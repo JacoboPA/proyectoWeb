@@ -7,18 +7,26 @@ $(window).ready(function () {
 
 })
 
-$(function () {
-    nombre = $('#nombre').val();
+/*
+$("#nombre").on('change',function () {
+    var pathusername = $('#imagen').val();
+    var ruta_imagen = pathusername.split('/');
+    $('#imagen').attr('value', ruta_imagen[0]+"/"+$("#nombre").val()+".jpg");
+})
+*/
 
+
+$(function () {
+    var nombre = $('#nombre').val();
     var $avatarImage, $avatarInput, $avatarForm;
 
     $avatarImage = $('#' + nombre + '_imagen');
     $avatarInput = $('#archivo_subida');
     $avatarForm = $('#avatarForm');
-
     $avatarImage.on('click', function () {
         $avatarInput.click();
     });
+
 
     $avatarInput.on('change', function () {
         if ($avatarInput.val() != null) {
@@ -26,6 +34,7 @@ $(function () {
 
 
         }
+
         alert('cambiando foto');
         var formData = new FormData();
         formData.append('archivo', $avatarInput[0].files[0]);
@@ -78,6 +87,37 @@ $(function () {
              alert(textStatus);
              alert(errorThrown);
          });*/
+
+        var formData = new FormData();
+        formData.append('photo', $avatarInput[0].files[0]);
+        $.ajax({
+            url: "/perfil/foto" + '?' + $avatarForm.serialize(),
+            method: $avatarForm.attr('method'),
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                //imagen de carga
+                //alert('cambiando');
+                document.getElementById("imagen_subida").style.display = 'block';
+                //document.getElementById("imagen_subida").style.display = 'none';
+
+            }
+        }).done(function (data) {
+            setTimeout(function () {document.getElementById("imagen_subida").style.display = 'none';}, 2000)
+            //alert('cambio hecho ');
+            $avatarImage.attr('src', "/avatares/" + data);
+            $('#imagen').attr('value', data);
+
+
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                alert('La imagen subida no tiene un formato correcto');
+                alert(jqXHR.status);
+                alert(textStatus);
+                alert(errorThrown);
+            });
+
     });
 });
 
@@ -105,6 +145,7 @@ $("#name").keydown(function () {
             }, 1999)
 
         })
+
         .error(function () {
             alert("ha habido un problema");
         })

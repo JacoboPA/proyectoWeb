@@ -35,7 +35,6 @@ Route::get('/registro_usuario','PJController@cargar_archivos');
 
 Route::post('/perfil/foto', 'PJController@updatePhoto');
 
-
 Route::get('/Humanos','PagesController@Human');
 Route::get('/Enanos', 'PagesController@Dwarf');
 Route::get('/Elfos', 'PagesController@Elf');

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests\PJformRequest;
 use App\Personaje;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
@@ -25,6 +26,7 @@ class PJController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //$personajes = Personaje::all();//aqui hace una especie de consulta para que nos guarde en $personajes , todos los personajes que hay
@@ -139,6 +141,7 @@ class PJController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+
     public function update($slug, PJformRequest $request)
     {
 
@@ -146,19 +149,27 @@ class PJController extends Controller
         $user = Auth::user();
         //función para poder actualizar la información de un ticket
         $ticket = Personaje::wherenombre($slug)->firstOrFail();
-        if ($request->get('imagen') == '' && $request->file('archivo') != null) {
+        if ($request->file('archivo') != null) {
             $imagen = $request->file('archivo')->storeAs('/' . $user->name, $request->get('nombre') . '.' . $request->file('archivo')->getClientOriginalExtension());
+            Storage::delete($user->name . '/' . $request->get('nombre') . '_new.' . $request->file('archivo')->getClientOriginalExtension());
         } else {
             $imagen = $request->get('imagen');
 
+
         }
+        /**
+         * Modificar para que busque todos los personajes existentes y en el momento en el que haya imagenes
+         * que no se correspondan con el nombre de ningún personaje , las borra.
+         */
+
 
         //almacenamos en $ticket el ticket con el $slug pedido
         $ticket->nombre = $request->get('nombre');
         $ticket->historia = $request->get('historia');
         $ticket->imagen = $imagen;
-
         $ticket->save();
+
+
         return redirect('/personajes')->with('status', 'personaje actualizado');
     }
 
@@ -172,8 +183,8 @@ class PJController extends Controller
     {
 
         $personaje = Personaje::wherenombre($slug)->firstOrFail();
+        Storage::delete($personaje->getImagen());
         $personaje->delete();
-
         return redirect('/personajes')->with('status', $slug . ' borrado');
         //return view('personajes.index')->with('status','personaje '.$slug.' ha sido borrado');
     }
@@ -199,34 +210,44 @@ class PJController extends Controller
 
     public function cargar_archivos()
     {
-        $ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
+        //$ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
 
-        $conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
+        //$conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
         $usuario = $_GET['nombre'];
-        $consulta = $conexion->query("select name from users where name='" . $usuario . "'");
+        //$consulta = $conexion->query("select name from users where name='" . $usuario . "'");
+
+        $usuarios = User::all();
+        $contador = 0;
+        foreach ($usuarios as $user) {
+            if ($user->name == $usuario) {
+                $contador++;
+            }
+        }
         if ($_GET['nombre'] == "") {
             echo "";
         } else {
-            if ($consulta->num_rows > 0) {
-                echo "no disponible";
+            if ($contador > 0) {
+                echo "No Disponible";
             } else {
-                echo "disponible";
+                echo "Disponible";
             }
 
         }
     }
 
 
-
     public function updatePhoto(Request $request)
     {
         $user = Auth::user();
-
+        //$personaje = Personaje::wherenombre($slug)->firstOrFail();
         $this->validate($request, [
             'photo' => 'required|image'
         ]);
-        $file = $request->file('photo');
-        $imagen = $file->storeAs('temporales',$user->name.$request->file('photo')->getATime().'.'.$request->file('photo')->getClientOriginalExtension());
+        //$file = $request->file('photo');
+
+        $imagen = $request->file('photo')->storeAs('/' . $user->name, $request->get('nombre') . '_new.' . $request->file('photo')->getClientOriginalExtension());
+
+        //$imagen = $file->storeAs('cambios/'.$user->name, $user->name .'_'. $request->file('photo')->getATime()%1000 . '.' . $request->file('photo')->getClientOriginalExtension());
 
         return $imagen;
     }
