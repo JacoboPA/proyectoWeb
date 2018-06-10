@@ -7,19 +7,10 @@ $(window).ready(function () {
 
 })
 
-/*
-$("#nombre").on('change',function () {
-    var pathusername = $('#imagen').val();
-    var ruta_imagen = pathusername.split('/');
-    $('#imagen').attr('value', ruta_imagen[0]+"/"+$("#nombre").val()+".jpg");
-})
-*/
-
-
-
 
 $(function () {
     var nombre = $('#nombre').val();
+
     var $avatarImage, $avatarInput, $avatarForm;
 
     $avatarImage = $('#' + nombre + '_imagen');
@@ -29,9 +20,30 @@ $(function () {
         $avatarInput.click();
     });
 
+    $("#nombre").on('change', function () {
+        var pathusername = $('#imagen').val();
+        var ruta_imagen = pathusername.split('/');
+        $('#imagen').attr('value', ruta_imagen[0] + "/" + $("#nombre").val() + ".jpg");
+
+        var formData = new FormData();
+        formData.append('nombre_antiguo', nombre);
+        $.ajax({
+            url: "/renamePhoto" + '?' + $avatarForm.serialize(),
+            method: $avatarForm.attr('method'),
+            data: formData,
+            processData: false,
+            contentType: false
+
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+            alert(textStatus);
+            alert(errorThrown);
+        });
+
+    })
 
     $avatarInput.on('change', function () {
-        alert('cambiando foto ');
+
         if ($avatarInput.val() != null) {
             $('#imagen').attr('value', "");
 
@@ -53,10 +65,12 @@ $(function () {
 
             }
         }).done(function (data) {
-            setTimeout(function () {document.getElementById("imagen_subida").style.display = 'none';}, 2000)
+            setTimeout(function () {
+                document.getElementById("imagen_subida").style.display = 'none';
+            }, 2000)
             //alert('cambio hecho ');
             $avatarImage.attr('src', "/avatares/" + data);
-            $('#imagen').attr('value', data);
+            //$('#imagen').attr('value', data);
 
 
         })
