@@ -218,7 +218,9 @@ class PJController extends Controller
     {
         $personajes = Personaje::all();
         foreach ($personajes as $pj) {
+            Storage::delete($pj->getImagen());
             $pj->delete();
+
         }
         return redirect('/personajes')->with('status', 'se han borrado todos los personajes');
     }
