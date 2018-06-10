@@ -16,6 +16,8 @@ $("#nombre").on('change',function () {
 */
 
 
+
+
 $(function () {
     var nombre = $('#nombre').val();
     var $avatarImage, $avatarInput, $avatarForm;
@@ -29,6 +31,7 @@ $(function () {
 
 
     $avatarInput.on('change', function () {
+        alert('cambiando la foto');
         if ($avatarInput.val() != null) {
             $('#imagen').attr('value', "");
 
