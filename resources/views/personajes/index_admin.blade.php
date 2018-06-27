@@ -60,10 +60,11 @@
                                 <a href="{{url('personajes/'.$pj->nombre)}}" class="enlace">
 
                                     @if($pj->imagen == '')
-                                        <img class="img-circle imagen col-md-push-1"
-                                             src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
-                                    @else
+                                        <img src="https://vignette.wikia.nocookie.net/icarly/images/7/76/Troll_guy.png/revision/latest?cb=20110824142105">
+                                    @elseif($pj->imagen[0]=='h')
                                         <img class="img-circle imagen col-md-push-1" src="{{$pj->imagen}}">
+                                    @else
+                                        <img class="img-circle imagen col-md-push-1" src="/avatares/{{$pj->imagen}}">
                                     @endif
                                     <div class="collapse">
 
