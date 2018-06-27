@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use Spipu\Html2Pdf\Html2Pdf;
+use Barryvdh\DomPDF\Facade as PDF;
 
 //utiliza la clase Mail para que se pueda utilizar la clase Mail.
 //aquí se incluye el modelo de Personaje.
@@ -151,11 +151,11 @@ class PJController extends Controller
         $nombre_antiguo = $request->get('nombre_antiguo');
         $nombre_nuevo = $request->get('nombre');
 
-        if($request->file('archivo') != null){
+        if ($request->file('archivo') != null) {
             Storage::delete($user->name . '/' . $nombre_antiguo . '_new.JPG');
         }
 
-        Storage::move($user->name . '/' .$nombre_antiguo.'.jpg',$user->name . '/' .$nombre_nuevo.'.jpg');
+        Storage::move($user->name . '/' . $nombre_antiguo . '.jpg', $user->name . '/' . $nombre_nuevo . '.jpg');
     }
 
     public function update($slug, PJformRequest $request)
@@ -249,8 +249,15 @@ class PJController extends Controller
 
         }
     }
-    public function print ($nombre){
 
+    public function print($nombre)
+    {
+        $pj = Personaje::wherenombre($nombre)->firstOrFail();
+
+
+        $pdf = PDF::loadView('PDFs.personaje', compact('pj'));
+
+        return $pdf->download($nombre.'.pdf');
 
     }
 

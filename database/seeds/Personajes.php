@@ -11,14 +11,6 @@ class Personajes extends Seeder
      */
     public function run()
     {
-        DB::table('personajes')->insert([
-            'id'=>'1',
-            'clase'=>'Mago',
-            'raza'=>'Elfo',
-            'nombre'=>'Malekith',
-            'historia'=>'sdalskdjalskdjas',
-            'name' =>'usuario1',
-            'imagen'=>'Jacobo/Malekith.jpg'
-        ]);
+        factory(App\Personaje::class, 12)->create();
     }
 }

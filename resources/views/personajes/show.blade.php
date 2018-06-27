@@ -173,10 +173,10 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-md-push-2">
-                    <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                    <div>
-                       <!-- <button class="btn btn-primary">PDF</button>-->
-                    </div>
+
+                    <a href="{{route('personajes.pdf')}}">
+                       <button class="btn btn-primary">PDF</button>
+                    </a>
 
                 </div>
             </form>

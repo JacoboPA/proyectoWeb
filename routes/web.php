@@ -46,7 +46,7 @@ Route::get('/Mago', 'PagesController@Wizard');
 
 
 //generamos los pdf de mordheim
-Route::get('personajes/{slug?}/printpdf','PJController@print');
+Route::get('/personajes/{slug?}/printpdf','PJController@print')->name('personajes.pdf');
 
 
 //ruta para que nos envíe emails automáticamente.
