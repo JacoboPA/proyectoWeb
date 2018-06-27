@@ -44,7 +44,9 @@
 
             <div class="row">
                 <div class="col-md-6 atributos">
-                    <h3><strong>{{$pj->nombre}} ( {{$pj->raza}})</strong></h3>
+                    <h3><strong>{{$pj->nombre}}@if($pj->raza != 'Humano' || 'Elfo' || 'Enano') Sin
+                            raza@else( {{$pj->raza}})
+                            @endif</strong></h3>
                 </div>
             </div>
 
@@ -57,7 +59,11 @@
             </div>
             <div class="row" id="personaje_clase">
                 <div class="card col-md-12">
-                    <h4>{{$pj->clase}}</h4>
+                    @if($pj->clase != 'Mago' || 'Picaro' || 'Guerrero')
+                        <h4>Sin clase</h4>
+                    @else
+                        <h4>{{$pj->clase}}</h4>
+                    @endif
                 </div>
             </div>
             <div class="row"><!--Habilidades propias de la clase por defecto..-->

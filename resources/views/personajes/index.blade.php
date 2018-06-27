@@ -81,8 +81,16 @@
 
                                         <h3>Nombre: {{$pj->nombre}}</h3>
                                         <p>
-                                            Clase : {{$pj->clase}}<br>
-                                            Raza : {{$pj->raza}}
+                                            @if($pj->clase != 'Mago' || 'Guerrero' || 'Picaro')
+                                                Clase : Sin clase <br>
+                                            @else
+                                                Clase : {{$pj->clase}}<br>
+                                            @endif
+                                            @if($pj->raza != 'Humano' || 'Elfo' || 'Enano')
+                                                Raza : Sin raza
+                                            @else
+                                                Raza : {{$pj->raza}}
+                                            @endif
                                         </p>
                                     </div>
                                 </a>
@@ -95,8 +103,16 @@
 
                                     <h3>Nombre: {{$pj->nombre}}</h3>
                                     <p>
-                                        Clase : {{$pj->clase}}<br>
-                                        Raza : {{$pj->raza}}
+                                        @if($pj->clase != 'Mago' || 'Guerrero' || 'Picaro')
+                                            Clase : Sin clase <br>
+                                        @else
+                                            Clase : {{$pj->clase}}<br>
+                                        @endif
+                                        @if($pj->raza != 'Humano' || 'Elfo' || 'Enano')
+                                            Raza : Sin raza
+                                        @else
+                                            Raza : {{$pj->raza}}
+                                        @endif
                                     </p>
                                 </div>
                                 <div class="row">
