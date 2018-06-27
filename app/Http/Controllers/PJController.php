@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Spipu\Html2Pdf\Html2Pdf;
 
 //utiliza la clase Mail para que se pueda utilizar la clase Mail.
 //aquí se incluye el modelo de Personaje.
@@ -107,7 +108,7 @@ class PJController extends Controller
                     $message->to('jacobopa58@gmail.com')->subject('¡hay un nuevo ticket!');
                 });
         */
-        return redirect('/contact')->with('status', $ticket->nombre . ' creado.');
+        return redirect('/personajes')->with('status', $ticket->nombre . ' creado.');
     }
 
     /**
@@ -227,11 +228,8 @@ class PJController extends Controller
 
     public function cargar_archivos()
     {
-        //$ip_usuario = $_SERVER['REMOTE_ADDR'];//Con esta línea capturamos la dirección ip del usuario.
 
-        //$conexion = mysqli_connect("127.0.0.1", "homestead", "secret", "homestead");
         $usuario = $_GET['nombre'];
-        //$consulta = $conexion->query("select name from users where name='" . $usuario . "'");
 
         $usuarios = User::all();
         $contador = 0;
@@ -251,7 +249,10 @@ class PJController extends Controller
 
         }
     }
+    public function print ($nombre){
 
+
+    }
 
     public function updatePhoto(Request $request)
     {

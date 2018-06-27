@@ -61,7 +61,7 @@
             @if ($personajes->isEmpty())
                 <p><h3 class="container"> No hay personajes.</h3></p>
                 <p>
-                    <a href="/contact">
+                    <a href="/PJcreate">
                         <button class="btn btn-info">Crear Personaje</button>
                     </a>
                 </p>

@@ -1,29 +1,13 @@
 @extends('master')
 
 @section('content')
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <?php $user = \Illuminate\Support\Facades\Auth::user();
 
-                if($user->rol != 'admin'){
-                ?>
-                @include('shared.navbar_user')
-                <?php
-                }
-                else{
-                ?>
-                @include('shared.navbar_admin')
-                <?php
-                }
-                ?>
-            @else
+    <div class="top-right links">
 
-                @include('shared.navbar_sin_user')
 
-            @endauth
-        </div>
-    @endif
+        @include('shared.navbar_sin_user')
+
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -88,6 +72,14 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                            name="password_confirmation" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rol" class="col-md-4 control-label">Rol(admin/user)</label>
+
+                                <div class="col-md-6">
+                                    <input id="rol" type="text" class="form-control"
+                                           name="rol" required>
                                 </div>
                             </div>
 

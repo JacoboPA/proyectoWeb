@@ -20,7 +20,7 @@ class CreatePersonajesTable extends Migration
             $table->string('nombre')->unique();
             $table->String('historia');
             $table->String('imagen');
-            $table->String('name')->unsigned()->nullable();
+            $table->String('name');
             $table->foreign('name')->references('name')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

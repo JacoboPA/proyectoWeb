@@ -18,8 +18,8 @@ Route::get('/settings','PagesController@settings');
 Route::get('/Juego2','PagesController@index2');
 
 
-Route::get('/contact', 'PJController@create');
-Route::post('/contact','PJController@store');
+Route::get('/PJcreate', 'PJController@create');
+Route::post('/PJcreate','PJController@store');
 
 
 Route::get('/personajes/admin','PJController@index_admin');
@@ -45,7 +45,8 @@ Route::get('/Mago', 'PagesController@Wizard');
 
 
 
-
+//generamos los pdf de mordheim
+Route::get('personajes/{slug?}/printpdf','PJController@print');
 
 
 //ruta para que nos envíe emails automáticamente.

@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\Auth;
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Personajes<span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
-                        <li><a href="/contact">Creacion de personajes</a></li>
+                        <li><a href="/PJcreate">Creacion de personajes</a></li>
 
                         <li><a href="/personajes">Personajes</a></li>
 

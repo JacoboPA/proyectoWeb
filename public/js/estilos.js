@@ -109,7 +109,7 @@ $("#name").keydown(function () {
         })
 
         .error(function () {
-            alert("ha habido un problema");
+           // alert("ha habido un problema");
         })
 
 })
