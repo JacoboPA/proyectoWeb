@@ -22,7 +22,9 @@
 
         <div class="row">
             <div class="col-md-6 atributos">
-                <h3><strong>{{$pj->nombre}} ( {{$pj->raza}})</strong></h3>
+                <h3><strong>{{$pj->nombre}} @if($pj->raza != 'Humano' || 'Elfo' || 'Enano') no te equivoques
+                        wey @else( {{$pj->raza}})
+                        @endif</strong></h3>
             </div>
         </div>
 
