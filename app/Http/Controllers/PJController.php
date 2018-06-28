@@ -88,9 +88,22 @@ class PJController extends Controller
             $imagen = $request->get('imagen');
 
         }
+
+
+        if($request->get('raza') != 'Elfo' || 'Humano' || 'Enano'){
+            $raza = 'default';
+        }
+        elseif ($request->get('clase') != 'Guerrero' || 'Picaro' || 'Mago'){
+            $clase = 'default';
+        }
+        else{
+            $raza = $request->get('raza');
+            $clase = $request->get('clase');
+        }
+
         $ticket = new Personaje(array(
-            'clase' => $request->get('clase'),
-            'raza' => $request->get('raza'),
+            'clase' => $clase,
+            'raza' => $raza,
             'nombre' => $request->get('nombre'),
             'historia' => $request->get('historia'),
             'imagen' => $imagen,
