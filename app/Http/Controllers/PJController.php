@@ -99,17 +99,18 @@ class PJController extends Controller
         else{
             $raza = $request->get('raza');
             $clase = $request->get('clase');
+            $ticket = new Personaje(array(
+                'clase' => $clase,
+                'raza' => $raza,
+                'nombre' => $request->get('nombre'),
+                'historia' => $request->get('historia'),
+                'imagen' => $imagen,
+                'name' => $user->name,
+            ));
+            $ticket->save();
         }
 
-        $ticket = new Personaje(array(
-            'clase' => $clase,
-            'raza' => $raza,
-            'nombre' => $request->get('nombre'),
-            'historia' => $request->get('historia'),
-            'imagen' => $imagen,
-            'name' => $user->name,
-        ));
-        $ticket->save();
+
 
         //Personaje::create($request->all());
 
