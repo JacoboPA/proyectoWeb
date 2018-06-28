@@ -45,7 +45,9 @@
             <div class="row">
                 <div class="col-md-6 atributos">
                     <h3><strong>{{$pj->nombre}}@if($pj->raza != 'Humano' || 'Elfo' || 'Enano') Sin
-                            raza@else( {{$pj->raza}})
+                            raza
+                            @else
+                                {{$pj->raza}}
                             @endif</strong></h3>
                 </div>
             </div>
