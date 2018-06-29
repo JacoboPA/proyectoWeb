@@ -16,10 +16,8 @@ class CreateClaseTable extends Migration
         Schema::create('clase', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_clase');
+            $table->string('descripcion');
             $table->string('nombre_habilidad');
-            $table->string('nombre_raza');
-            $table->foreign('nombre_raza')->references('nombre_raza')->on('razas')->onDelete('cascade');
-            $table->foreign('nombre_habilidad')->references('nombre_habilidad')->on('habilidades')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreateRazasTable extends Migration
             $table->increments('id');
             $table->string('nombre_raza')->unique();
             $table->string('nombre_habilidad');
-            $table->foreign('nombre_habilidad')->references('nombre_habilidad')->on('habilidades')->onDelete('cascade');
+            $table->string('nombre_clase');
             $table->timestamps();
         });
     }

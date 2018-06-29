@@ -21,9 +21,6 @@ class CreatePjTable extends Migration
             $table->String('historia');
             $table->String('imagen');
             $table->String('name');
-            $table->foreign('name')->references('name')->on('users')->onDelete('cascade');
-            $table->foreign('nombre_clase')->references('nombre_clase')->on('clase')->onDelete('cascade');
-            $table->foreign('nombre_raza')->references('nombre_raza')->on('razas')->onDelete('cascade');
             $table->timestamps();
         });
     }
