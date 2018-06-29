@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Clase;
+use App\Habilidade;
+use App\Raza;
 use Faker\Provider\File;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
@@ -63,7 +66,12 @@ class PJController extends Controller
      */
     public function create()
     {
-        return view('personajes.create');
+
+        $clases = Clase::all()->groupBy('clase');
+        // dd($clases->all());
+        $razas = Raza::all();
+
+        return view('personajes.create', compact('clases'), compact('razas'));
     }
 
     /**
@@ -88,14 +96,27 @@ class PJController extends Controller
             $imagen = $request->get('imagen');
 
         }
+        //dd($request->all());
+        /**
+         * validaciones a la hora de crear el personaje
+         */
+
+        if (Clase::whereclase($request->get('clase'))->firstOrFail()) {
+            $clase = $request->get('clase');
+        }
+        if (Raza::whereraza($request->get('raza'))->firstOrFail()) {
+            $raza = $request->get('raza');
+        }
+
         $ticket = new Personaje(array(
-            'clase' => $request->get('clase'),
-            'raza' => $request->get('raza'),
+            'clase' => $clase,
+            'raza' => $raza,
             'nombre' => $request->get('nombre'),
             'historia' => $request->get('historia'),
             'imagen' => $imagen,
             'name' => $user->name,
         ));
+        // dd($ticket);
         $ticket->save();
 
         //Personaje::create($request->all());
@@ -119,8 +140,21 @@ class PJController extends Controller
      */
     public function show($slug)
     {
+
+        /**
+         *
+         */
         $pj = Personaje::wherenombre($slug)->firstOrFail();
-        return view('personajes.show', compact('pj'));
+        //dd($pj->clase);
+
+        $habilidades = DB::select("SELECT habilidades.habilidad, habilidades.descripcion
+                                   FROM habilidades
+                                   INNER JOIN clases ON habilidades.habilidad = clases.habilidad AND clases.clase = '".$pj->clase."'");
+
+        //dd($habilidades);
+
+
+        return view('personajes.show', compact('pj'), compact('habilidades'));
     }
 
     /**
@@ -257,7 +291,7 @@ class PJController extends Controller
 
         $pdf = PDF::loadView('PDFs.personaje', compact('pj'));
 
-        return $pdf->download($nombre.'.pdf');
+        return $pdf->download($nombre . '.pdf');
 
     }
 

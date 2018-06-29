@@ -53,11 +53,14 @@
                             <label for="title" class="col-lg-2 control-label">Clase</label>
 
                         </div>
-                        <div class="row">
-                            <label class="radio-inline"><input type="radio" name="clase" value="Mago" class="clase">Mago</label>
-                            <label class="radio-inline"><input type="radio" name="clase" value="Pícaro" class="clase">Pícaro</label>
-                            <label class="radio-inline"><input type="radio" name="clase"
-                                                               value="Guerrero" class="clase">Guerrero</label>
+                        <div class="row" id="clases">
+                            @foreach($clases as $clase)
+
+                                <label class="radio-inline"><input type="radio" name="clase"
+                                                                   value="{{$clase[0]->getClase()}}"
+                                                                   class="clase">{{$clase[0]->getClase()}}</label>
+                            @endforeach
+
 
                         </div>
 
@@ -68,11 +71,14 @@
                             <label for="content" class="col-lg-2 control-label">Raza</label>
 
                         </div>
-                        <div class="row">
-                            <label class="radio-inline"><input type="radio" name="raza" value="Elfo"
-                                                               class="raza">Elfo</label>
-                            <label class="radio-inline"><input type="radio" name="raza" value="Humano" class="raza">Humano</label>
-                            <label class="radio-inline"><input type="radio" name="raza" value="Enano" class="raza">Enano</label>
+                        <div class="row" id="razas">
+                            @foreach($razas as $raza)
+                                <label class="radio-inline"><input type="radio" name="raza"
+                                                                   value="{{$raza->getNombre()}}"
+                                                                   class="raza">{{$raza->getNombre()}}</label>
+                            @endforeach
+
+
                         </div>
                     </div>
 
@@ -104,7 +110,7 @@
 
                     <p>
                         <label for="archivo" class="col-lg-2">Sube tu avatar</label>
-                        <input name="archivo" type="file"  class="col-md-4">
+                        <input name="archivo" type="file" class="col-md-4">
 
                     </p>
 

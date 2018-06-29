@@ -19,6 +19,9 @@ class Personaje extends Model
     function getImagen(){
         return $this->imagen;
     }
+    function getClase(){
+        return $this->clase;
+    }
 
     function getAvatar()
     {

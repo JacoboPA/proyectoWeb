@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-social.less">
     <!--Estilos propios-->
     <link rel="stylesheet" type="text/css" href="/css/estilos.less">
+
 <style>
     body {
 
@@ -23,6 +24,7 @@
 
     }
 </style>
+    <meta charset="utf-8">
 </head>
 <body>
 

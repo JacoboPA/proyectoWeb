@@ -13,7 +13,7 @@ class CreateClaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('clase', function (Blueprint $table) {
+        Schema::create('clases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_clase');
             $table->string('descripcion');
