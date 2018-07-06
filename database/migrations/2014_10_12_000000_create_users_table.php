@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->String('rol');
             $table->rememberToken();
             $table->timestamps();
+            
         });
     }
 
