@@ -72,12 +72,12 @@
 
                         </div>
                         <div class="row" id="razas">
-                            @foreach($razas as $raza)
+                            <!--
                                 <label class="radio-inline"><input type="radio" name="raza"
-                                                                   value="{{$raza->getNombre()}}"
-                                                                   class="raza">{{$raza->getNombre()}}</label>
-                            @endforeach
+                                                                   value="$raza->getNombre()"
+                                                                   class="raza">$raza->getNombre() </label>
 
+-->
 
                         </div>
                     </div>

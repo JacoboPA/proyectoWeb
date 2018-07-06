@@ -7,7 +7,7 @@ $(window).ready(function () {
 
 })
 
-
+//cambio de imagen
 $(function () {
     var nombre = $('#nombre').val();
 
@@ -83,6 +83,7 @@ $(function () {
     });
 });
 
+//comprobando los nombres de usuario
 $("#name").keydown(function () {
     var nombre = $("#name").val();
 
@@ -109,11 +110,33 @@ $("#name").keydown(function () {
         })
 
         .error(function () {
-           // alert("ha habido un problema");
+            // alert("ha habido un problema");
         })
 
 })
 
+
+//consulta para obtener las razas posibles para cada clase.
+$("input:radio[name=clase]").click(function () {
+
+    alert($("input:radio[name=clase]:checked").val());
+   // var formData = new FormData();
+
+    $.ajax({
+        url: "/RacesAvailables",
+        method: 'POST'
+       // data: formData
+    })
+        .done(function (data) {
+            alert('hecho');
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+           // alert('La imagen subida no tiene un formato correcto');
+            alert(jqXHR.status);
+            alert(textStatus);
+            alert(errorThrown);
+        });
+});
 $(".imagen").parent(".enlace").hover(function () {
     $(this).children('.collapse').collapse('show');
 }, function () {

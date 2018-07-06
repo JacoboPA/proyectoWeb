@@ -69,9 +69,9 @@ class PJController extends Controller
 
         $clases = Clase::all()->groupBy('clase');
         // dd($clases->all());
-        $razas = Raza::all();
+        //$razas = Raza::all();
 
-        return view('personajes.create', compact('clases'), compact('razas'));
+        return view('personajes.create', compact('clases'));
     }
 
     /**
@@ -80,7 +80,9 @@ class PJController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+    public function Races(Request $request){
 
+    }
 
 //Modo de uso
     public function store(PJformRequest $request)
@@ -123,7 +125,7 @@ class PJController extends Controller
 
 
         /*
-                Mail::send('personajes.welcome',$data,function ($message){ //carpeta personajes , archivo welcome.blade.php
+                Mail::send('personajes.welcome',$data,function ($message){ //carpeta personajes , archivo master.blade.php
                     $message->from('jacobopa58@gmail.com','Curso laravel');
 
                     $message->to('jacobopa58@gmail.com')->subject('¡hay un nuevo ticket!');
